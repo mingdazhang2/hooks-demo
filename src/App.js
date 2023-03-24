@@ -1,11 +1,12 @@
 //import logo from './logo.svg';
 import './App.css';
-import Example from './demo/Example'
-import Foo from './demo/Foo'
-
 import React, { useState } from "react";
 import Post from "./components/Post";
-import {StopWatch} from "./components/StopWatch";
+
+import MemoryHookDemo from './demo/MemoryHook'
+import {UseEffecthookDemo} from './demo/UseEffecthook'
+import {StopwatchReducerHookDemo} from "./demo/StopwatchReducerHook";
+import {FormReducerHookDemo} from "./demo/FormReducerHook";
 function App() {
   const [show, setShow] = useState(false);
   const showPost = () => {
@@ -14,13 +15,17 @@ function App() {
   };
   return (
     <div className="App">
-      <StopWatch />
+    
       {/* <div>
         <button onClick={showPost}>Show Posts</button>
         {show && <Post />}
-      </div> */}
-      {/* <Example/> */}
-      {/* <Foo/> */}
+      </div> 
+        <StopwatchReducerHookDemo />
+        <FormReducerHookDemo />
+        <MemoryHookDemo/>
+      */}
+    
+      <UseEffecthookDemo/>
     </div>
   );
 }

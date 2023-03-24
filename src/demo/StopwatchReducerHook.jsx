@@ -1,6 +1,6 @@
 import React, { useEffect, useReducer,useRef } from 'react'
 
-export const StopWatch = () => {
+export const StopwatchReducerHookDemo = () => {
     const initialState ={
         isRunning:false,
         time:0,

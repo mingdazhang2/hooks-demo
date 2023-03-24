@@ -1,23 +1,26 @@
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
+import Example from './demo/Example'
+import Foo from './demo/Foo'
 
+import React, { useState } from "react";
+import Post from "./components/Post";
+import {StopWatch} from "./components/StopWatch";
 function App() {
+  const [show, setShow] = useState(false);
+  const showPost = () => {
+    // toggles posts onclick of button
+    setShow(!show);
+  };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <StopWatch />
+      {/* <div>
+        <button onClick={showPost}>Show Posts</button>
+        {show && <Post />}
+      </div> */}
+      {/* <Example/> */}
+      {/* <Foo/> */}
     </div>
   );
 }

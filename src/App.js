@@ -1,12 +1,13 @@
 //import logo from './logo.svg';
-import './App.css';
+import "./App.css";
 import React, { useState } from "react";
 import Post from "./components/Post";
 
-import MemoryHookDemo from './demo/MemoryHook'
-import {UseEffecthookDemo} from './demo/UseEffecthook'
-import {StopwatchReducerHookDemo} from "./demo/StopwatchReducerHook";
-import {FormReducerHookDemo} from "./demo/FormReducerHook";
+import MemoryHookDemo from "./demo/MemoryHook";
+import { UseEffecthookDemo } from "./demo/UseEffecthook";
+import { StopwatchReducerHookDemo } from "./demo/StopwatchReducerHook";
+import { FormReducerHookDemo } from "./demo/FormReducerHook";
+
 function App() {
   const [show, setShow] = useState(false);
   const showPost = () => {
@@ -15,17 +16,17 @@ function App() {
   };
   return (
     <div className="App">
-    
-      {/* <div>
+      <StopwatchReducerHookDemo />
+      {/* 
+        <div>
         <button onClick={showPost}>Show Posts</button>
         {show && <Post />}
-      </div> 
-        <StopwatchReducerHookDemo />
+      </div>
         <FormReducerHookDemo />
         <MemoryHookDemo/>
+        <UseEffecthookDemo />
+         <Post/>
       */}
-    
-      <UseEffecthookDemo/>
     </div>
   );
 }

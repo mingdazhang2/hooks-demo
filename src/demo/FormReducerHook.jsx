@@ -1,8 +1,6 @@
 import React, { useReducer, useRef, useState } from "react";
 
-
 export const FormReducerHookDemo = () => {
-
   // USING USESTATE
 
   // const [product, setProduct] = useState({
@@ -49,9 +47,6 @@ export const FormReducerHookDemo = () => {
   //       quantity: prev.quantity - 1,
   //     }));
   // };
-
-
-
 
   //USING USEREDUCER
   const INITIAL_STATE = {
@@ -114,7 +109,6 @@ export const FormReducerHookDemo = () => {
   };
 
   return (
-
     // USING USESTATE
 
     // <div>
@@ -170,9 +164,8 @@ export const FormReducerHookDemo = () => {
     //   </form>
     // </div>
 
-
     //USING USEREDUCER
-    
+
     <div>
       <form>
         <input
@@ -230,4 +223,3 @@ export const FormReducerHookDemo = () => {
     </div>
   );
 };
-

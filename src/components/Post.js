@@ -4,15 +4,20 @@ import React, { useState, useEffect } from "react";
 export default function Post() {
   const [posts, setPosts] = useState([]);
   const [error, setError] = useState(null);
-   useEffect(() => {
+  useEffect(() => {
     const controller = new AbortController();
     const signal = controller.signal;
     //setTimeout(function() {
-      fetch("https://jsonplaceholder.typicode.com/posts", { signal: signal })
+    fetch("https://jsonplaceholder.typicode.com/posts", { signal: signal })
       .then((res) => res.json())
-      .then((res) => setPosts(res))
+      .then((data) => setPosts(data))
       .catch((err) => setError(err));
-     //}, 1000)
+    //}, 1000)
+
+    return () => {
+      console.log("abort");
+      controller.abort();
+    };
   }, []);
   return (
     <div>

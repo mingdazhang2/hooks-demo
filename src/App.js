@@ -8,6 +8,8 @@ import { UseEffecthookDemo } from "./demo/UseEffecthook";
 import { StopwatchReducerHookDemo } from "./demo/StopwatchReducerHook";
 import { FormReducerHookDemo } from "./demo/FormReducerHook";
 
+import { UseStateDemo } from "./hooksDemoPages/UseStateDemo";
+
 function App() {
   const [show, setShow] = useState(false);
   const showPost = () => {
@@ -27,6 +29,7 @@ function App() {
         <UseEffecthookDemo />
          <Post/>
       */}
+      <UseStateDemo />
     </div>
   );
 }

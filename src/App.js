@@ -7,8 +7,9 @@ import MemoryHookDemo from "./demo/MemoryHook";
 import { UseEffecthookDemo } from "./demo/UseEffecthook";
 import { StopwatchReducerHookDemo } from "./demo/StopwatchReducerHook";
 import { FormReducerHookDemo } from "./demo/FormReducerHook";
-
 import { UseStateDemo } from "./hooksDemoPages/UseStateDemo";
+
+import ThisDemo from "./components/ThisDemo";
 
 function App() {
   const [show, setShow] = useState(false);
@@ -16,9 +17,10 @@ function App() {
     // toggles posts onclick of button
     setShow(!show);
   };
+
   return (
     <div className="App">
-      <StopwatchReducerHookDemo />
+      {/* <StopwatchReducerHookDemo /> */}
       {/* 
         <div>
         <button onClick={showPost}>Show Posts</button>
@@ -29,7 +31,8 @@ function App() {
         <UseEffecthookDemo />
          <Post/>
       */}
-      <UseStateDemo />
+      {/* <UseStateDemo /> */}
+      <ThisDemo value="passInValue" />
     </div>
   );
 }

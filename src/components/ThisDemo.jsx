@@ -7,7 +7,8 @@ class ThisDemo extends React.Component {
     console.log("constructor", this);
   }
   clickFunction2() {
-    console.log("clickFunction()", this.props.value);
+    console.log("clickFunction()");
+    console.log("this in function", this.props.value);
   }
 
   render() {
@@ -19,7 +20,15 @@ class ThisDemo extends React.Component {
           </a>
         </div>
         {console.log("In return", this)}
-        <div onClick={this.clickFunction}>Click Me! </div>
+        <div onClick={this.clickFunction2()}>Click Me! </div>
+        {/* 
+        why click on "Click me" is not calling the code ?
+        
+        The clickFunction2 is being called immediately when the component renders 
+        because you are invoking it in the onClick event handler instead of passing it as a callback function.
+        To fix this, you should remove the parentheses in the onClick event handler so that it only passes a reference to the function, 
+        like this: <div onClick={this.clickFunction2}>Click Me!</div> 
+        */}
       </>
     );
   }

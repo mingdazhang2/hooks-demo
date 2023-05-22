@@ -34,7 +34,7 @@ export const StopwatchReducerHookDemo = () => {
   };
 
   const [state, dispatch] = useReducer(stopWatchReducer, initialState);
-  const idRef = useRef(0);
+  // const idRef = useRef(0);
   useEffect(() => {
     if (!state.isRunning) {
       return;
@@ -46,11 +46,20 @@ export const StopwatchReducerHookDemo = () => {
     };
   }, [state.isRunning]);
   return (
-    <div>
-      <div> StopWatch: {parseFloat(state.time).toFixed(2)}s </div>
-      <button onClick={() => dispatch({ type: "start" })}>Start</button>
-      <button onClick={() => dispatch({ type: "stop" })}>Stop</button>
-      <button onClick={() => dispatch({ type: "reset" })}>Reset</button>
-    </div>
+    <>
+      <div>
+        <div> StopWatch: {parseFloat(state.time).toFixed(2)}s </div>
+        <button onClick={() => dispatch({ type: "start" })}>Start</button>
+        <button onClick={() => dispatch({ type: "stop" })}>Stop</button>
+        <button onClick={() => dispatch({ type: "reset" })}>Reset</button>
+      </div>
+      <div>
+        <p>
+          The useReducer(reducer, initialState) hook accepts 2 arguments: the
+          reducer function and the initial state. The hook then returns an array
+          of 2 items: the current state and the dispatch function.
+        </p>
+      </div>
+    </>
   );
 };

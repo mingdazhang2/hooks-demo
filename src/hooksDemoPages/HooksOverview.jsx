@@ -1,6 +1,6 @@
 import React from "react";
 
-export const hooksOverview = () => {
+export const HooksOverview = () => {
   return (
     <div>
       <h1>Hooks Overview</h1>

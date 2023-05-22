@@ -15,7 +15,7 @@ export const UseStateDemo = () => {
     setCount((preCount) => preCount + 1);
   }
   return (
-    <div>
+    <div className="useStateDemo">
       <h2>useStateDemo</h2>
       <button onClick={decrementCount}>-</button>
       <span>{count}</span>

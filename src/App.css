@@ -1,0 +1,15 @@
+.App{
+    background-color: #c2d8ff;
+    min-height: 100vh;
+    
+}
+.App .navbar-nav .dropdown-menu{
+    margin: 0;
+}
+.App nav .dropdown-toggle-split{
+    padding: 0;
+    border: none;
+}
+.btn{
+    margin: 0.25rem 0.125rem
+}

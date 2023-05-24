@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export const UseStateDemo = () => {
+export const CounterStateHook = () => {
   const [count, setCount] = useState(4);
 
   function complexCount() {

@@ -235,15 +235,15 @@ export const FormReducerHookDemo = () => {
           <div className="lead mb-2">Counter:</div>
           <div className="quantity">
             <button
-              className="btn btn-dark"
+              className="btn btn-secondary"
               onClick={() => dispatch({ type: "DECREASE" })}
               type="button"
             >
               -
             </button>
-            <span>Quantity ({state.quantity})</span>
+            <span> Quantity ({state.quantity}) </span>
             <button
-              className="btn btn-light"
+              className="btn btn-primary"
               onClick={() => dispatch({ type: "INCREASE" })}
               type="button"
             >

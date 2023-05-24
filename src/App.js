@@ -15,10 +15,13 @@ import { TodoReducerHook } from "./reducerHooks/TodoReducerHook";
 import { MemoryHookDemo } from "./memoryHooks/MemoryHook";
 import { Link } from "react-router-dom";
 import Post from "./effectHooks/Post";
-import { UseStateDemo } from "./stateHooks/UseStateDemo";
+import { CounterStateHook } from "./stateHooks/CounterStateHook";
 import { UseEffectDemo } from "./effectHooks/UseEffectDemo";
 import ThisDemo from "./others/ThisDemo";
 import { UseEffecthookDemo } from "./effectHooks/UseEffecthook";
+import { StateHookOverview } from "./contentPages/StateHookOverview";
+import { ReduceHookOverview } from "./contentPages/ReduceHookOverview";
+import { RefHookOverview } from "./contentPages/RefHookOverview";
 
 function App() {
   // toggles posts onclick of button
@@ -30,26 +33,25 @@ function App() {
   return (
     <div className="App pb-5">
       <BrowserRouter>
-        <Menu />
-        <div className="container">
-          <Routes>
-            <Route path="/" element={<HooksOverview />} />
-            <Route
-              path="/reducer-hook/counter"
-              element={<CounterReducerHook showLineNumbers={false} />}
-            />
-            <Route
-              path="/reducer-hook/stopwatch"
-              element={<StopwatchReducerHookDemo />}
-            />
-            <Route
-              path="/reducer-hook/form"
-              element={<FormReducerHookDemo />}
-            />
-            <Route path="/reducer-hook/todos" element={<TodoReducerHook />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </div>
+        <Routes>
+          <Route path="/" element={<Menu />}>
+            <Route index element={<HooksOverview />} />
+            <Route path="ref-hook" element={<RefHookOverview />} />
+            <Route path="state-hook" element={<StateHookOverview />}>
+              <Route path="useState" element={<CounterStateHook />} />
+              <Route path="useReducer" element={<ReduceHookOverview />}>
+                <Route path="counter" element={<CounterReducerHook />} />
+                <Route
+                  path="stopwatch"
+                  element={<StopwatchReducerHookDemo />}
+                />
+                <Route path="form" element={<FormReducerHookDemo />} />
+                <Route path="todos" element={<TodoReducerHook />} />
+              </Route>
+            </Route>
+          </Route>
+          <Route path="*" element={<NotFound />} />
+        </Routes>
       </BrowserRouter>
 
       {/* 

@@ -171,39 +171,58 @@ export const FormReducerHookDemo = () => {
     <>
       <div className="my-5">
         <form>
-          <input
-            type="text"
-            placeholder="Title"
+          <div className="lead mb-2">Inputs:</div>
+          <div className="input-group mb-3">
+            <input
+              className="form-control"
+              type="text"
+              placeholder="Title"
+              onChange={handleChange}
+              name="title"
+            />
+            <input
+              className="form-control"
+              type="number"
+              placeholder="Price"
+              onChange={handleChange}
+              name="price"
+            />
+            <input
+              className="form-control"
+              type="text"
+              placeholder="Desc"
+              onChange={handleChange}
+              name="desc"
+            />
+          </div>
+
+          <div className="lead mb-2">Category:</div>
+          <select
             onChange={handleChange}
-            name="title"
-          />
-          <input
-            type="text"
-            placeholder="Desc"
-            onChange={handleChange}
-            name="desc"
-          />
-          <input
-            type="number"
-            placeholder="Price"
-            onChange={handleChange}
-            name="price"
-          />
-          <p>Category:</p>
-          <select onChange={handleChange} name="category">
+            name="category"
+            className="form-select"
+          >
             <option value="sneakers">Sneakers</option>
             <option value="tshirts">T-shirts</option>
             <option value="jeans">Jeans</option>
           </select>
-          <p>Tags:</p>
-          <textarea
-            ref={tagRef}
-            placeholder="Seperate tags with commas..."
-          ></textarea>
-          <button onClick={handleTags} type="button">
-            Add Tags
-          </button>
-          <div className="tags">
+          <div className="lead mb-2">Tag:</div>
+          <div className="input-group">
+            <input
+              className="form-control"
+              ref={tagRef}
+              placeholder="Seperate tags with commas..."
+            ></input>
+            <button
+              className="btn btn-primary"
+              onClick={handleTags}
+              type="button"
+            >
+              Add Tags
+            </button>
+          </div>
+
+          <div className="tags mb-3">
             {state.tags.map((tag) => (
               <small
                 onClick={() => dispatch({ type: "REMOVE_TAG", payload: tag })}
@@ -213,8 +232,10 @@ export const FormReducerHookDemo = () => {
               </small>
             ))}
           </div>
+          <div className="lead mb-2">Counter:</div>
           <div className="quantity">
             <button
+              className="btn btn-dark"
               onClick={() => dispatch({ type: "DECREASE" })}
               type="button"
             >
@@ -222,6 +243,7 @@ export const FormReducerHookDemo = () => {
             </button>
             <span>Quantity ({state.quantity})</span>
             <button
+              className="btn btn-light"
               onClick={() => dispatch({ type: "INCREASE" })}
               type="button"
             >

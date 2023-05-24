@@ -1,5 +1,5 @@
 .App{
-    background-color: #c2d8ff;
+    background-color: #f2f7ff;
     min-height: 100vh;
     
 }
@@ -11,5 +11,6 @@
     border: none;
 }
 .btn{
-    margin: 0.25rem 0.125rem
+    margin-left: 0.125rem;
+    margin-right: 0.125rem;
 }

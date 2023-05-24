@@ -4,21 +4,21 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import React from "react";
 import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
-import { HooksOverview } from "./hooksDemoPages/HooksOverview";
-import { Menu } from "./components/menu";
-
+import { HooksOverview } from "./contentPages/HooksOverview";
+import { NotFound } from "./contentPages/NotFound";
+import { Menu } from "./components/Menu";
 import { StopwatchReducerHookDemo } from "./reducerHooks/StopwatchReducerHook";
 import { FormReducerHookDemo } from "./reducerHooks/FormReducerHook";
 import { CounterReducerHook } from "./reducerHooks/CounterReducerHook";
 import { TodoReducerHook } from "./reducerHooks/TodoReducerHook";
 
-import { MemoryHookDemo } from "./pages/MemoryHook";
+import { MemoryHookDemo } from "./memoryHooks/MemoryHook";
 import { Link } from "react-router-dom";
-import Post from "./components/Post";
-import { UseStateDemo } from "./hooksDemoPages/UseStateDemo";
-import { UseEffectDemo } from "./hooksDemoPages/UseEffectDemo";
-import ThisDemo from "./components/ThisDemo";
-import { UseEffecthookDemo } from "./pages/UseEffecthook";
+import Post from "./effectHooks/Post";
+import { UseStateDemo } from "./stateHooks/UseStateDemo";
+import { UseEffectDemo } from "./effectHooks/UseEffectDemo";
+import ThisDemo from "./others/ThisDemo";
+import { UseEffecthookDemo } from "./effectHooks/UseEffecthook";
 
 function App() {
   // toggles posts onclick of button
@@ -47,6 +47,7 @@ function App() {
               element={<FormReducerHookDemo />}
             />
             <Route path="/reducer-hook/todos" element={<TodoReducerHook />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </div>
       </BrowserRouter>

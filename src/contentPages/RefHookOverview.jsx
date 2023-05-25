@@ -1,6 +1,6 @@
 import React from "react";
 
-export const RefHookOverview = () => {
+const RefHookOverview = () => {
   return (
     <div>
       <h1>Ref Hooks</h1>
@@ -24,3 +24,4 @@ export const RefHookOverview = () => {
     </div>
   );
 };
+export default RefHookOverview;

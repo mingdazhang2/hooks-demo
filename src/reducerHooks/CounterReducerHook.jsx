@@ -1,6 +1,6 @@
 import React, { useReducer } from "react";
 import { CopyBlock, googlecode } from "react-code-blocks";
-export const CounterReducerHook = (props) => {
+const CounterReducerHook = (props) => {
   // 1. initial state
   const initialState = {
     counter: 0,
@@ -51,6 +51,7 @@ export const CounterReducerHook = (props) => {
     </>
   );
 };
+export default CounterReducerHook;
 const codeSnippet = ` useReducer()
   The useReducer(reducer, initialState) hook accepts 2 arguments: the reducer function and the initial state. 
   The hook then returns an array of 2 items: the current state and the dispatch function.

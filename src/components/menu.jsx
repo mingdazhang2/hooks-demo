@@ -6,35 +6,8 @@ import { Outlet, Link } from "react-router-dom";
 // import SplitButton from "react-bootstrap/SplitButton";
 // import ButtonGroup from "react-bootstrap/ButtonGroup";
 // import Dropdown from "react-bootstrap/Dropdown";
-export const Menu = () => {
-  const stateHooksMenuItems = [
-    {
-      path: "/useState",
-      title: "useState",
-    },
-    {
-      path: "/useReducer",
-      title: "useReducer",
-      children: [
-        {
-          path: "/counter",
-          title: "counter",
-        },
-        {
-          path: "/stopwatch",
-          title: "stopwatch",
-        },
-        {
-          path: "/todos",
-          title: "todos",
-        },
-        {
-          path: "/form",
-          title: "form",
-        },
-      ],
-    },
-  ];
+export const Menu = (props) => {
+  let deepth = 0;
 
   return (
     <>
@@ -46,17 +19,22 @@ export const Menu = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <NavDropdownLink
-                to="/state-hook"
-                title="State Hooks"
-                subMenuItems={stateHooksMenuItems}
-              />
-              {/* <NavDropdownLink to="/reducer-hook" title="Reduce Hooks" /> */}
-              <Nav.Item>
-                <Nav.Link as={Link} to="/ref-hook">
-                  Ref Hooks
-                </Nav.Link>
-              </Nav.Item>
+              {props.RouteData.map((route) => {
+                return route.ifNavDropdownLink ? (
+                  <NavDropdownLink
+                    key={route.to}
+                    to={route.to}
+                    title={route.title}
+                    children={route.children}
+                  />
+                ) : (
+                  <Nav.Item key={route.to}>
+                    <Nav.Link as={Link} to={route.to}>
+                      {route.title}
+                    </Nav.Link>
+                  </Nav.Item>
+                );
+              })}
             </Nav>
           </Navbar.Collapse>
         </Container>

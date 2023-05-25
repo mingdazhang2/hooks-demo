@@ -20,37 +20,25 @@ export const NavDropdownLink = (props) => {
         <Link className="dropdown-toggle nav-link" to={props.to}>
           {props.title}
         </Link>
-        <div className={(show ? "show " : "") + "dropdown-menu "}>
-          {props.subMenuItems.map((item) => {
+        <div className={(show ? "show " : "show") + "dropdown-menu "}>
+          {props.children.map((item) => {
             return !item.children ? (
               <Link
-                key={item.path}
+                key={item.to}
                 className="dropdown-item"
-                to={props.to + item.path}
+                to={props.to + "/" + item.to}
               >
                 {item.title}
               </Link>
             ) : (
               <NavDropdownLink
-                to={props.to + item.path}
+                key={props.to + item.to}
+                to={props.to + "/" + item.to}
                 title={item.title}
-                subMenuItems={item.children}
+                children={item.children}
               />
             );
           })}
-          {/* <Link className="dropdown-item" to={props.to + "/counter"}>
-            Counter
-          </Link>
-          <Link className="dropdown-item" to={props.to + "/stopwatch"}>
-            Stopwatch
-          </Link>
-          <Link className="dropdown-item" to={props.to + "/todos"}>
-            Todos
-          </Link>
-          <hr className="dropdown-divider" />
-          <Link className="dropdown-item" to={props.to + "/form"}>
-            Form
-          </Link> */}
         </div>
       </div>
     </>

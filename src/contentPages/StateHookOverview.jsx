@@ -1,6 +1,6 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-export const StateHookOverview = () => {
+const StateHookOverview = () => {
   return (
     <>
       <div>
@@ -25,3 +25,4 @@ export const StateHookOverview = () => {
     </>
   );
 };
+export default StateHookOverview;

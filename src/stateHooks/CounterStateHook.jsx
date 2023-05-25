@@ -1,12 +1,7 @@
 import React, { useState } from "react";
 
-export const CounterStateHook = () => {
+const CounterStateHook = () => {
   const [count, setCount] = useState(4);
-
-  function complexCount() {
-    console.log("run complex count");
-    return 4;
-  }
 
   function decrementCount() {
     setCount((preCount) => preCount - 1);
@@ -23,10 +18,11 @@ export const CounterStateHook = () => {
 
       <p>
         Use function as para only run once, the default one runs every time the
-        compnent render
+        component render
       </p>
       <p>const [count, setCount] = useState(4);</p>
       <p>const [count, setCount] = useState(()=&gt; complexCount);</p>
     </div>
   );
 };
+export default CounterStateHook;

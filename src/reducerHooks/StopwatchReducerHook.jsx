@@ -1,6 +1,6 @@
 import React, { useEffect, useReducer } from "react";
 import { CopyBlock, googlecode } from "react-code-blocks";
-export const StopwatchReducerHookDemo = () => {
+const StopwatchReducerHookDemo = () => {
   const initialState = {
     isRunning: false,
     time: 0,
@@ -79,6 +79,7 @@ export const StopwatchReducerHookDemo = () => {
     </>
   );
 };
+export default StopwatchReducerHookDemo;
 const codeSnippet = `import React, { useEffect, useReducer } from "react";
 export const StopwatchReducerHookDemo = () => {
    // 1. initial state

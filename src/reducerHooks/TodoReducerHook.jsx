@@ -1,6 +1,6 @@
 import React, { useReducer } from "react";
 import { CopyBlock, googlecode } from "react-code-blocks";
-export const TodoReducerHook = () => {
+const TodoReducerHook = () => {
   // 1. initial state
   const initialTodos = [
     {
@@ -64,7 +64,7 @@ export const TodoReducerHook = () => {
     </>
   );
 };
-
+export default TodoReducerHook;
 const codeSnippet = `import React, { useReducer } from "react";
 import { CopyBlock, googlecode } from "react-code-blocks";
 export const TodoReducerHook = () => {

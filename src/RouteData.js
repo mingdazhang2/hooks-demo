@@ -37,18 +37,26 @@ export const RouteData = [
           {
             to: "counter",
             title: "counter",
+            folderName: "reducerHooks",
+            fileName: "CounterReducerHook",
           },
           {
             to: "stopwatch",
             title: "stopwatch",
+            folderName: "reducerHooks",
+            fileName: "StopwatchReducerHook",
           },
           {
             to: "todos",
             title: "todos",
+            folderName: "reducerHooks",
+            fileName: "TodoReducerHook",
           },
           {
             to: "form",
             title: "form",
+            folderName: "reducerHooks",
+            fileName: "FormReducerHook",
           },
         ],
       },

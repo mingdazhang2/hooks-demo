@@ -1,6 +1,6 @@
 import React, { useReducer, useRef, useState } from "react";
 
-export const FormReducerHookDemo = () => {
+const FormReducerHookDemo = () => {
   // USING USESTATE
 
   // const [product, setProduct] = useState({
@@ -255,3 +255,4 @@ export const FormReducerHookDemo = () => {
     </>
   );
 };
+export default FormReducerHookDemo;

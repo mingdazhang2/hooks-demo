@@ -26,6 +26,7 @@ export const Menu = (props) => {
                     to={route.to}
                     title={route.title}
                     children={route.children}
+                    deepth={1}
                   />
                 ) : (
                   <Nav.Item key={route.to}>

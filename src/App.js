@@ -13,10 +13,10 @@ import LoadablePage from "./components/LoadablePage";
 // import { CounterReducerHook } from "./reducerHooks/CounterReducerHook";
 // import { TodoReducerHook } from "./reducerHooks/TodoReducerHook";
 
+import { CounterStateHook } from "./stateHooks/CounterStateHook";
 // import { MemoryHookDemo } from "./memoryHooks/MemoryHook";
 
 // import Post from "./effectHooks/Post";
-// import { CounterStateHook } from "./stateHooks/CounterStateHook";
 // import { UseEffectDemo } from "./effectHooks/UseEffectDemo";
 // import ThisDemo from "./others/ThisDemo";
 // import { UseEffecthookDemo } from "./effectHooks/UseEffecthook";
@@ -37,6 +37,10 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Menu RouteData={RouteData} />}>
+            {/* <Route
+              path="/state-hook/useState/counter"
+              element={<CounterStateHook />}
+            /> */}
             <Route index element={<HooksOverview />} />
             {recursiveRenderRoutes(RouteData)}
           </Route>
@@ -52,31 +56,30 @@ function App() {
 
 export default App;
 
-const recursiveRenderRoutes = (routes) => {
+const recursiveRenderRoutes = (routes, currentPath = "/") => {
   return routes.map((route) => {
-    // const { to, title, folderName, fileName, children, ifNavDropdownLink } = route;
-    // const path = `/${to}`;
+    let path = currentPath + route.to;
     return route.children && route.children.length > 0 ? (
       <React.Fragment key={route.to}>
         <Route
           key={route.to}
-          path={route.to}
+          path={path}
           element={
             <LoadablePage folderName={route.folderName} page={route.fileName} />
           }
         />
-        {console.log("path", route.to)}
-        {recursiveRenderRoutes(route.children)}
+        {console.log("path-m", path)}
+        {recursiveRenderRoutes(route.children, path + "/")}
       </React.Fragment>
     ) : (
       <Route
         key={route.to}
-        path={route.to}
+        path={path}
         element={
           <LoadablePage folderName={route.folderName} page={route.fileName} />
         }
       >
-        {console.log("path", route.to)}
+        {console.log("path-s", path)}
       </Route>
     );
   });

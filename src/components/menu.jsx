@@ -1,39 +1,45 @@
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import { NavDropdownLink } from "./NavDropdownLink";
+import { SubMenu } from "./SubMenu";
 import { Outlet, Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 // import SplitButton from "react-bootstrap/SplitButton";
 // import ButtonGroup from "react-bootstrap/ButtonGroup";
 // import Dropdown from "react-bootstrap/Dropdown";
 export const Menu = (props) => {
-  let deepth = 0;
+  const [isNavOpen, setIsNavOpen] = useState(false);
+  const handleNavToggle = () => {
+    setIsNavOpen(!isNavOpen);
+  };
 
+  const handleLinkClick = () => {
+    setIsNavOpen(false);
+  };
   return (
     <>
-      <Navbar bg="light" expand="lg">
+      <Navbar expand="lg" bg="light" variant="light">
         <Container>
           <Navbar.Brand as={Link} to="/">
             React Hooks
           </Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
+          <Navbar.Toggle
+            aria-controls="basic-navbar-nav"
+            onClick={handleNavToggle}
+          />
+          <Navbar.Collapse id="basic-navbar-nav" in={isNavOpen}>
             <Nav className="me-auto">
               {props.RouteData.map((route) => {
-                return route.ifNavDropdownLink ? (
-                  <NavDropdownLink
+                return (
+                  <SubMenu
+                    handleLinkClick={handleLinkClick}
                     key={route.to}
                     to={route.to}
                     title={route.title}
                     children={route.children}
-                    deepth={1}
+                    depth={1}
+                    // onClick={handleNavCollapse}
                   />
-                ) : (
-                  <Nav.Item key={route.to}>
-                    <Nav.Link as={Link} to={route.to}>
-                      {route.title}
-                    </Nav.Link>
-                  </Nav.Item>
                 );
               })}
             </Nav>

@@ -6,11 +6,76 @@
 .App .navbar-nav .dropdown-menu{
     margin: 0;
 }
-.App nav .dropdown-toggle-split{
-    padding: 0;
-    border: none;
+.subMenu{
+    margin-left:10px;
+}
+.App .depth1 > .hasDropdown, .hasDropdown.nav-item{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.App .nav-item{
+   /* background-color :#54e08738!important */
+  position: relative;
+}
+
+.hasDropdown.nav-item + .dropdown{
+    position: relative;
+    /* position: absolute; */
+   
+}
+.offcanvas .depth1 > .hasDropdown.nav-item + .dropdown{
+    position: absolute;
+    display: none;
+}
+.offcanvas .depth1> .hasDropdown.nav-item + .dropdown.show{
+    position: relative;
+    /* position: absolute; */
+    display: block;
+}
+.App .depth1:hover{
+    cursor: pointer;
+}
+.App .depth1 > .hasDropdown >.dropdown-toggle{
+    display: inline;
+}
+.App .depth1 > .hasDropdown > .dropdownToken:after{
+    content:"v"
+}
+
+.App .depth1 > .dropdown{
+    display: none;
+    background-color: #54e087;
+    min-width: 200px;
+    z-index: 666;
+}
+.App .depth1 > .show.dropdown{ 
+    display: block;
+}
+
+.App .depth1.nav-item.dropdown > .nav-item{
+    display: flex;
+   
 }
 .btn{
     margin-left: 0.125rem;
     margin-right: 0.125rem;
+}
+@media (min-width: 992px) {
+    .App .depth1 > .hasDropdown > .dropdownToken:after{
+        content:""
+    }
+    /* .App .depth1 > .hasDropdown >.dropdown-toggle:after{
+        content:none;
+    } */
+    .App .depth1.nav-item:hover > .dropdown {
+display: block;
+
+    }
+    .App .depth1 > .dropdown{
+        position: absolute;
+       
+    }
 }

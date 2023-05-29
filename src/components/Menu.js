@@ -20,30 +20,24 @@ export const Menu = (props) => {
     setIsNavOpen(false);
   };
   const themeContent = useContext(ThemeContext);
-  const [isDarkMode, setIsDarkMode] = useState(
-    themeContent === "dark" ? true : false
-  );
-  const handleTheme = () => {
-    setTheme(isDarkMode ? "light" : "dark");
-    setIsDarkMode(!isDarkMode);
-
-    console.log("click isDarkMode", isDarkMode);
-  };
-
-  const [theme, setTheme] = useState(themeContent);
-  console.log("themeContent", themeContent);
-  console.log("isDarkMode", isDarkMode);
-
+  console.log("themeContent value in Menu:", themeContent);
   return (
     <>
-      <Navbar expand="lg" bg={theme} variant={theme} fixed="top">
+      <Navbar expand="lg" bg={themeContent} variant={themeContent} fixed="top">
         <Container>
           <Navbar.Brand as={Link} to="/">
             React Hooks
           </Navbar.Brand>
           <div style={{ order: 10 }}>
-            <span className={"themeMode-" + theme} onClick={handleTheme}>
-              {isDarkMode ? <Icon.SunFill /> : <Icon.MoonStarsFill />}
+            <span
+              className={"themeMode-" + themeContent}
+              onClick={props.handleTheme}
+            >
+              {themeContent === "dark" ? (
+                <Icon.SunFill />
+              ) : (
+                <Icon.MoonStarsFill />
+              )}
             </span>
             <Navbar.Toggle
               aria-controls="basic-navbar-nav"

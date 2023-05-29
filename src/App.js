@@ -23,29 +23,39 @@ import LoadablePage from "./components/LoadablePage";
 // import { RefHookOverview } from "./contentPages/RefHookOverview";
 
 import { RouteData } from "./RouteData";
-export const ThemeContext = createContext("light");
+export const ThemeContext = createContext("dark");
 function App() {
   // toggles posts onclick of button
   // const [show, setShow] = useState(false);
   // const showPost = () => {
   //   setShow(!show);
   // };
-  // const [isDarkMode, setIsDarkMode] = useState(
-  //   ThemeContext === "dark" ? true : false
-  // );
-  // const [theme, setTheme] = useState(ThemeContext);
-  // const handleTheme = () => {
-  //   setTheme(isDarkMode ? "light" : "dark");
-  //   setIsDarkMode(!isDarkMode);
+  let initIsDarModeValue = localStorage.getItem("theme")
+    ? localStorage.getItem("theme")
+    : "dark";
 
-  //   console.log("click isDarkMode", isDarkMode);
-  // };
+  console.log("localstorage:", initIsDarModeValue);
+  const [isDarkMode, setIsDarkMode] = useState(
+    initIsDarModeValue === "dark" ? true : false
+  );
+
+  const handleTheme = () => {
+    setIsDarkMode(!isDarkMode);
+    localStorage.setItem(
+      "theme",
+      initIsDarModeValue === "dark" ? "light" : "dark"
+    );
+  };
   return (
-    <ThemeContext.Provider value={"dark"}>
+    <ThemeContext.Provider value={isDarkMode ? "dark" : "light"}>
+      {console.log("isDarkmode in return", isDarkMode)}
       <div className="App pb-5">
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Menu RouteData={RouteData} />}>
+            <Route
+              path="/"
+              element={<Menu RouteData={RouteData} handleTheme={handleTheme} />}
+            >
               {/* <Route
               path="/state-hook/useState/counter"
               element={<CounterStateHook />}

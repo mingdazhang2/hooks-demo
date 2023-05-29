@@ -28,7 +28,7 @@ export const Menu = (props) => {
           <Navbar.Brand as={Link} to="/">
             React Hooks
           </Navbar.Brand>
-          <div style={{ order: 10 }}>
+          <div className="rightNavbar">
             <span
               className={"themeMode-" + themeContent}
               onClick={props.handleTheme}

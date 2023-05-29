@@ -66,6 +66,9 @@
 .navbar-dark .dropdown-toggle:after {
     color: white;
 }
+.rightNavbar{
+     order: none
+}
 .btn{
     margin-left: 0.125rem;
     margin-right: 0.125rem;
@@ -110,4 +113,7 @@
         position: absolute;
        
     }
+    .rightNavbar{
+        order: 10
+   }
 }

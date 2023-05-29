@@ -1,5 +1,13 @@
 export const RouteData = [
   {
+    to: "content-hook",
+    title: "Content Hooks",
+    ifNavDropdownLink: false,
+    folderName: "contentPages",
+    fileName: "ContentHookOverview",
+    children: [],
+  },
+  {
     to: "performane-hook",
     title: "Performance Hooks",
     ifNavDropdownLink: false,
@@ -18,7 +26,7 @@ export const RouteData = [
         to: "useRef",
         title: "useRef",
         folderName: "contentPages",
-        fileName: "UseStateHookOverview",
+        fileName: "UseRefHookOverview",
         children: [
           {
             to: "deleteTest",

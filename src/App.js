@@ -3,18 +3,15 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import React from "react";
+import { createContext } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HooksOverview } from "./contentPages/HooksOverview";
-// import { NotFound } from "./contentPages/NotFound";
+import { NotFound } from "./contentPages/NotFound";
 import { Menu } from "./components/Menu";
-
+import { useState } from "react";
 import LoadablePage from "./components/LoadablePage";
-// import { StopwatchReducerHookDemo } from "./reducerHooks/StopwatchReducerHook";
-// import { FormReducerHookDemo } from "./reducerHooks/FormReducerHook";
-// import { CounterReducerHook } from "./reducerHooks/CounterReducerHook";
-// import { TodoReducerHook } from "./reducerHooks/TodoReducerHook";
 
-import { CounterStateHook } from "./stateHooks/CounterStateHook";
+// import { CounterStateHook } from "./stateHooks/CounterStateHook";
 // import { MemoryHookDemo } from "./memoryHooks/MemoryHook";
 
 // import Post from "./effectHooks/Post";
@@ -26,32 +23,45 @@ import { CounterStateHook } from "./stateHooks/CounterStateHook";
 // import { RefHookOverview } from "./contentPages/RefHookOverview";
 
 import { RouteData } from "./RouteData";
+export const ThemeContext = createContext("light");
 function App() {
   // toggles posts onclick of button
   // const [show, setShow] = useState(false);
   // const showPost = () => {
   //   setShow(!show);
   // };
+  // const [isDarkMode, setIsDarkMode] = useState(
+  //   ThemeContext === "dark" ? true : false
+  // );
+  // const [theme, setTheme] = useState(ThemeContext);
+  // const handleTheme = () => {
+  //   setTheme(isDarkMode ? "light" : "dark");
+  //   setIsDarkMode(!isDarkMode);
 
+  //   console.log("click isDarkMode", isDarkMode);
+  // };
   return (
-    <div className="App pb-5">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Menu RouteData={RouteData} />}>
-            {/* <Route
+    <ThemeContext.Provider value={"dark"}>
+      <div className="App pb-5">
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Menu RouteData={RouteData} />}>
+              {/* <Route
               path="/state-hook/useState/counter"
               element={<CounterStateHook />}
             /> */}
-            <Route index element={<HooksOverview />} />
-            {recursiveRenderRoutes(RouteData)}
-          </Route>
-        </Routes>
-      </BrowserRouter>
+              <Route index element={<HooksOverview />} />
+              {recursiveRenderRoutes(RouteData)}
+              <Route path="*" element={<NotFound />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
 
-      {/* <UseEffectDemo /> */}
-      {/* <UseStateDemo /> */}
-      {/* <ThisDemo value="passInValue" />*/}
-    </div>
+        {/* <UseEffectDemo /> */}
+        {/* <UseStateDemo /> */}
+        {/* <ThisDemo value="passInValue" />*/}
+      </div>
+    </ThemeContext.Provider>
   );
 }
 
@@ -69,7 +79,7 @@ const recursiveRenderRoutes = (routes, currentPath = "/") => {
             <LoadablePage folderName={route.folderName} page={route.fileName} />
           }
         />
-        {console.log("path-m", path)}
+        {/* {console.log("path-m", path)} */}
         {recursiveRenderRoutes(route.children, path + "/")}
       </React.Fragment>
     ) : (
@@ -80,7 +90,7 @@ const recursiveRenderRoutes = (routes, currentPath = "/") => {
           <LoadablePage folderName={route.folderName} page={route.fileName} />
         }
       >
-        {console.log("path-s", path)}
+        {/* {console.log("path-s", path)} */}
       </Route>
     );
   });

@@ -2,10 +2,37 @@ import React, { useEffect, useState } from "react";
 import Nav from "react-bootstrap/Nav";
 import { Link } from "react-router-dom";
 export const SubMenu = (props) => {
-  const [show, setShow] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  const [showSubMenu, setShowSubMenu] = useState(false);
+
   useEffect(() => {
-    setShow(false);
-  }, []);
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+      if (windowWidth > 991) {
+        setShowSubMenu(false);
+        console.log("change width", windowWidth);
+      }
+    };
+    const debouncedHandleResize = debounce(handleResize, 10);
+    if (props.depth === 1) {
+      window.addEventListener("resize", debouncedHandleResize, false);
+    }
+    return () => {
+      window.removeEventListener("resize", debouncedHandleResize);
+    };
+  }, [props.depth, windowWidth]);
+
+  function debounce(fn, ms) {
+    let timer;
+    return (_) => {
+      clearTimeout(timer);
+      timer = setTimeout((_) => {
+        timer = null;
+        fn.apply(this, arguments);
+      }, ms);
+    };
+  }
   return (
     <>
       {props.children && props.children.length > 0 ? (
@@ -13,7 +40,11 @@ export const SubMenu = (props) => {
           <Nav.Item
             key={props.to}
             className="hasDropdown"
-            onClick={() => setShow(!show)}
+            onClick={() => {
+              if (windowWidth <= 991) {
+                setShowSubMenu(!showSubMenu);
+              }
+            }}
           >
             <Nav.Link as={Link} to={props.to} onClick={props.handleLinkClick}>
               {props.title}
@@ -21,7 +52,7 @@ export const SubMenu = (props) => {
             {props.depth === 1 ? <div className="dropdown-toggle"></div> : ""}
           </Nav.Item>
 
-          <div className={show ? "show dropdown" : "dropdown "}>
+          <div className={showSubMenu ? "show dropdown" : "dropdown "}>
             {props.children.map((child) => {
               return (
                 <div className="subMenu" key={child.to}>
@@ -31,6 +62,7 @@ export const SubMenu = (props) => {
                     title={child.title}
                     children={child.children}
                     depth={props.depth + 1}
+                    // showSubMenu={false}
                   />
                 </div>
               );

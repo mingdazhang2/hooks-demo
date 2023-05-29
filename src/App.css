@@ -1,11 +1,12 @@
 .App{
-    background-color: #f2f7ff;
+    background-color: #e0e0e0;
     min-height: 100vh;
-    
+    padding-top:4rem;
 }
 .App .navbar-nav .dropdown-menu{
     margin: 0;
 }
+
 .subMenu{
     margin-left:10px;
 }
@@ -45,11 +46,14 @@
     content:"v"
 }
 
-.App .depth1 > .dropdown{
+.App  .depth1 > .dropdown{
     display: none;
-    background-color: #54e087;
+    background-color: #ebebeb;
     min-width: 200px;
     z-index: 666;
+}
+.App .navbar-dark .depth1 > .dropdown{
+    background-color: #2e2e2e;
 }
 .App .depth1 > .show.dropdown{ 
     display: block;
@@ -59,19 +63,47 @@
     display: flex;
    
 }
+.navbar-dark .dropdown-toggle:after {
+    color: white;
+}
 .btn{
     margin-left: 0.125rem;
     margin-right: 0.125rem;
 }
+
+[class^="panel-"]{
+    padding:2rem;
+}
+.panel-light{
+    background-color: white;
+    color: #343a40;
+}
+.panel-dark{
+    background-color: #343a40;
+    color:white;
+}
+[class^="themeMode-"]{
+    margin: auto 15px
+}
+[class^="themeMode-"]:hover{
+    cursor: pointer;
+}
+.themeMode-dark >*{
+    color:white;
+}
+.themeMode-light >*{
+    color:#343a40;
+}
+
 @media (min-width: 992px) {
     .App .depth1 > .hasDropdown > .dropdownToken:after{
         content:""
     }
-    /* .App .depth1 > .hasDropdown >.dropdown-toggle:after{
+    .App .depth1 > .hasDropdown >.dropdown-toggle:after{
         content:none;
-    } */
+    }
     .App .depth1.nav-item:hover > .dropdown {
-display: block;
+        display: block;
 
     }
     .App .depth1 > .dropdown{

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-export const UseEffecthookDemo = () => {
+const IntervalDemo = () => {
   const [number, setNumber] = useState(0);
   // Update the document title using the browser API
   document.title = ` ${number} times`;
@@ -20,3 +20,4 @@ export const UseEffecthookDemo = () => {
     </div>
   );
 };
+export default IntervalDemo;

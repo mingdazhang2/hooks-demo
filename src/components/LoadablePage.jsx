@@ -8,4 +8,5 @@ const LoadablePage = loadable(
     cacheKey: (props) => props.page,
   }
 );
+
 export default LoadablePage;

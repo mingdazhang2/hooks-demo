@@ -1,18 +1,53 @@
 import React from "react";
-
+// import { ThemeContext } from "../components/Layout";
+// import { useContext } from "react";
 export const HooksOverview = () => {
+  // const themeContent = useContext(ThemeContext);
   return (
     <div>
-      <h1>Hooks Overview</h1>
+      <h1>React Hooks</h1>
       <div className="lead">
-        <p>
-          Hooks can not in loops, can not in "if condition" and can not in
-          function components
-        </p>
-        <p>Hooks are be called in orders</p>
+        A hook is a special function that lets you "hook into" various React
+        features.
       </div>
+      Imagine a function that returns an array with two values:
+      <ul>
+        <li>
+          <b>The first value:</b> a variable with the state.
+        </li>
+        <li>
+          <b>The second value:</b> a variable with an handler (a function to
+          change the current state).
+        </li>
+      </ul>
+      <h2>The Rules of React Hooks</h2>
+      <div className="lead"> Only Call Hooks at the Top Level</div>
+      <p>
+        Don't call hooks inside loops, conditions, or nested functions. Always
+        use hooks at the top level of your React function (component), before
+        any early returns. The reason behind this is that hooks must be called
+        in the same order each time a component renders. This is what allows
+        React to correctly preserve the state of hooks between multiple useState
+        and useEffect calls.
+      </p>
+      <div className="lead">Only Call Hooks from React Functions</div>
+      <p>
+        This means you can call hooks from React functions (components) or from
+        custom hooks, but not from regular JavaScript functions. There's this
+        useful plugin{" "}
+        <a
+          href="https://www.npmjs.com/package/eslint-plugin-react-hooks"
+          target="_blank"
+          rel="noreferrer"
+        >
+          {" "}
+          here
+        </a>{" "}
+        that enforces the rules of hooks. It's a very helpful one so make sure
+        you try it out.
+      </p>
       <hr />
-      <h2>Built-in React Hooks</h2>
+      <h2>Built-in React Hooks </h2>
       <p>
         Hooks let you use different React features from your components. You can
         either use the built-in Hooks or combine them to build your own. This

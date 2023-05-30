@@ -3,21 +3,23 @@
     min-height: 100vh;
     padding-top:4rem;
 }
-.App .navbar-nav .dropdown-menu{
+ .navbar-nav .dropdown-menu{
     margin: 0;
 }
-
+.container a{
+    text-decoration: none;
+}
 .subMenu{
     margin-left:10px;
 }
-.App .depth1 > .hasDropdown, .hasDropdown.nav-item{
+ .depth1 > .hasDropdown, .hasDropdown.nav-item{
     display: flex;
     align-items: center;
     justify-content: space-between;
 
 }
 
-.App .nav-item{
+.nav-item{
    /* background-color :#54e08738!important */
   position: relative;
 }

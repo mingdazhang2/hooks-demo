@@ -2,10 +2,10 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { SubMenu } from "./SubMenu";
-import { Outlet, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import React, { useState } from "react";
 import { useContext } from "react";
-import { ThemeContext } from "../App";
+import { ThemeContext } from "./Layout";
 import * as Icon from "react-bootstrap-icons";
 // import SplitButton from "react-bootstrap/SplitButton";
 // import ButtonGroup from "react-bootstrap/ButtonGroup";
@@ -19,6 +19,7 @@ export const Menu = (props) => {
   const handleLinkClick = () => {
     setIsNavOpen(false);
   };
+
   const themeContent = useContext(ThemeContext);
   console.log("themeContent value in Menu:", themeContent);
   return (
@@ -63,9 +64,6 @@ export const Menu = (props) => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      <div className="container">
-        <Outlet />
-      </div>
     </>
   );
 };

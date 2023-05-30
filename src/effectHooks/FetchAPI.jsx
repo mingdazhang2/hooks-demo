@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from "react";
 
-export const UseEffectDemo = () => {
+const FetchAPI = () => {
   const [resourceType, setResourceType] = useState("posts");
   const [items, setItems] = useState([]);
 
@@ -23,7 +23,7 @@ export const UseEffectDemo = () => {
 
   return (
     <div className="useEffectDemo">
-      <h2>useStateDemo</h2>
+      <h2>useState Fetch API Demo</h2>
       <div>
         <p className="erro">
           The error "Too many re-renders. React limits the number of renders to
@@ -50,9 +50,10 @@ export const UseEffectDemo = () => {
       <div>{resourceType}</div>
       <div>
         {items.map((item) => {
-          return <pre>{JSON.stringify(item)}</pre>;
+          return <div key={item.id}>{JSON.stringify(item)}</div>;
         })}
       </div>
     </div>
   );
 };
+export default FetchAPI;

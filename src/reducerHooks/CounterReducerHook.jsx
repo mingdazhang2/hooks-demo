@@ -1,6 +1,6 @@
 import React, { useReducer } from "react";
 import { CopyBlock, googlecode } from "react-code-blocks";
-const CounterReducerHook = (props) => {
+const CounterReducerHook = () => {
   // 1. initial state
   const initialState = {
     counter: 0,
@@ -42,8 +42,7 @@ const CounterReducerHook = (props) => {
       </div>
       <CopyBlock
         language="javascript"
-        showLineNumbers={props.showLineNumbers}
-        onCopy
+        showLineNumbers={false}
         codeBlock
         theme={googlecode}
         text={codeSnippet}

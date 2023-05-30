@@ -3,80 +3,53 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import React from "react";
-import { createContext } from "react";
+
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HooksOverview } from "./contentPages/HooksOverview";
 import { NotFound } from "./contentPages/NotFound";
-import { Menu } from "./components/Menu";
-import { useState } from "react";
+
 import LoadablePage from "./components/LoadablePage";
 
-// import { CounterStateHook } from "./stateHooks/CounterStateHook";
 // import { MemoryHookDemo } from "./memoryHooks/MemoryHook";
 
 // import Post from "./effectHooks/Post";
 // import { UseEffectDemo } from "./effectHooks/UseEffectDemo";
 // import ThisDemo from "./others/ThisDemo";
 // import { UseEffecthookDemo } from "./effectHooks/UseEffecthook";
-// import { StateHookOverview } from "./contentPages/StateHookOverview";
-// import { ReduceHookOverview } from "./contentPages/ReduceHookOverview";
+
 // import { RefHookOverview } from "./contentPages/RefHookOverview";
 
 import { RouteData } from "./RouteData";
-export const ThemeContext = createContext("dark");
+import { Layout } from "./components/Layout";
+
 function App() {
   // toggles posts onclick of button
   // const [show, setShow] = useState(false);
   // const showPost = () => {
   //   setShow(!show);
   // };
-  let initIsDarModeValue = localStorage.getItem("theme")
-    ? localStorage.getItem("theme")
-    : "dark";
 
-  console.log("localstorage:", initIsDarModeValue);
-  const [isDarkMode, setIsDarkMode] = useState(
-    initIsDarModeValue === "dark" ? true : false
-  );
-
-  const handleTheme = () => {
-    setIsDarkMode(!isDarkMode);
-    localStorage.setItem(
-      "theme",
-      initIsDarModeValue === "dark" ? "light" : "dark"
-    );
-  };
   return (
-    <ThemeContext.Provider value={isDarkMode ? "dark" : "light"}>
-      {console.log("isDarkmode in return", isDarkMode)}
-      <div className="App pb-5">
-        <BrowserRouter>
-          <Routes>
-            <Route
-              path="/"
-              element={<Menu RouteData={RouteData} handleTheme={handleTheme} />}
-            >
-              {/* <Route
-              path="/state-hook/useState/counter"
-              element={<CounterStateHook />}
-            /> */}
-              <Route index element={<HooksOverview />} />
-              {recursiveRenderRoutes(RouteData)}
-              <Route path="*" element={<NotFound />} />
-            </Route>
-          </Routes>
-        </BrowserRouter>
+    <div className="App pb-5">
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Layout RouteData={RouteData} />}>
+            <Route index element={<HooksOverview />} />
+            {recursiveRenderRoutes(RouteData)}
+            <Route path="*" element={<NotFound />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
 
-        {/* <UseEffectDemo /> */}
-        {/* <UseStateDemo /> */}
-        {/* <ThisDemo value="passInValue" />*/}
-      </div>
-    </ThemeContext.Provider>
+      {/* <UseEffectDemo /> */}
+      {/* <UseStateDemo /> */}
+      {/* <ThisDemo value="passInValue" />*/}
+    </div>
   );
 }
 
 export default App;
-
+// const routerArray = [{ url: "", title: "" }];
 const recursiveRenderRoutes = (routes, currentPath = "/") => {
   return routes.map((route) => {
     let path = currentPath + route.to;
@@ -89,7 +62,8 @@ const recursiveRenderRoutes = (routes, currentPath = "/") => {
             <LoadablePage folderName={route.folderName} page={route.fileName} />
           }
         />
-        {/* {console.log("path-m", path)} */}
+        {/* {routerArray.push[{ url: path, title: route.title }]} */}
+        {/* {console.log("path-m", path + " title:" + route.title)} */}
         {recursiveRenderRoutes(route.children, path + "/")}
       </React.Fragment>
     ) : (
@@ -100,7 +74,8 @@ const recursiveRenderRoutes = (routes, currentPath = "/") => {
           <LoadablePage folderName={route.folderName} page={route.fileName} />
         }
       >
-        {/* {console.log("path-s", path)} */}
+        {/* {routerArray.push[{ url: path, title: route.title }]} */}
+        {/* {console.log("path-s", path + " title:" + route.title)} */}
       </Route>
     );
   });

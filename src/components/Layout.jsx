@@ -29,7 +29,7 @@ export const Layout = (props) => {
       {/* {console.log("isDarkmode in return", isDarkMode)} */}
       <Menu RouteData={props.RouteData} handleTheme={handleTheme} />
       <div className="container">
-        <BreadcrumbComponent links={props.RouteData} />
+        <BreadcrumbComponent RouteData={props.RouteData} />
         <Outlet />
       </div>
     </ThemeContext.Provider>
@@ -43,10 +43,15 @@ const BreadcrumbComponent = ({ RouteData }) => {
   let parentPages = currentPath.split("/");
   console.log("parentPages", parentPages);
 
-  const findPageName = (to, depth) => {
-    for (let i = 0; i < depth; i++) {}
-  };
-  console.log(currentPath);
+  const expectedPage = parentPages.map((parentPage) => {
+    return RouteData.find((route) => route.to === parentPage);
+  });
+
+  // for (let i = 0; i < parentPages; i++) {
+  //   let foundObj =  RouteData.find(route => route.to === parentPages[i])
+  // }
+
+  console.log("expectedPage", expectedPage);
   const getParentPath = (path) => {
     const lastSlashIndex = path.lastIndexOf("/");
     return lastSlashIndex > 0 ? path.slice(0, lastSlashIndex) : "";

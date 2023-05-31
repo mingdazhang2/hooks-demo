@@ -68,7 +68,22 @@ export const RouteData = [
     ifNavDropdownLink: false,
     folderName: "contentPages",
     fileName: "PerformaneHookOverview",
-    children: [],
+    children: [
+      {
+        to: "useMemo",
+        title: "useMemo",
+        folderName: "contentPages",
+        fileName: "UseMemoHookOverview",
+        children: [],
+      },
+      {
+        to: "useCallback",
+        title: "useCallback",
+        folderName: "contentPages",
+        fileName: "UseCallbackHookOverview",
+        children: [],
+      },
+    ],
   },
   {
     to: "ref-hook",
@@ -129,6 +144,21 @@ export const RouteData = [
         fileName: "UseLayoutEffectHookOverview",
         children: [],
       },
+      {
+        to: "useInsertionEffect",
+        title: "useInsertionEffect",
+        folderName: "contentPages",
+        fileName: "UseInsertionEffectHookOverview",
+        children: [],
+      },
     ],
+  },
+  {
+    to: "own-hook",
+    title: "Own Hooks",
+    ifNavDropdownLink: false,
+    folderName: "contentPages",
+    fileName: "OwnHookOverview",
+    children: [],
   },
 ];

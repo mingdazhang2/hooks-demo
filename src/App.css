@@ -16,7 +16,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-
 }
 
 .nav-item{
@@ -26,8 +25,7 @@
 
 .hasDropdown.nav-item + .dropdown{
     position: relative;
-    /* position: absolute; */
-   
+    /* position: absolute; */ 
 }
 .offcanvas .depth1 > .hasDropdown.nav-item + .dropdown{
     position: absolute;
@@ -71,6 +69,23 @@
 .rightNavbar{
      order: none
 }
+.breadcrumb {
+    
+}
+.breadcrumb .breadcrumbLinkWrapper .breadcrumbLink {
+    text-decoration: underline;
+    
+    color:black;  
+}
+.breadcrumb .breadcrumbLinkWrapper:after{
+    content:"\\";
+    margin: auto 10px;
+}
+.breadcrumb .breadcrumbLinkWrapper:hover{
+    color:black;
+    font-weight: bold;
+}
+
 .btn{
     margin-left: 0.125rem;
     margin-right: 0.125rem;

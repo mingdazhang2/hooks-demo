@@ -99,10 +99,17 @@ export const RouteData = [
         fileName: "UseRefHookOverview",
         children: [
           {
-            to: "deleteTest",
-            title: "deleteTest",
-            folderName: "contentPages",
-            fileName: "UseRefHookOverview",
+            to: "interval-Demo",
+            title: "Interval Demo",
+            folderName: "refHooks",
+            fileName: "IntervalDemo",
+            children: [],
+          },
+          {
+            to: "manipulate-dom",
+            title: "Manipulating the DOM",
+            folderName: "refHooks",
+            fileName: "FocuseInput",
             children: [],
           },
         ],
@@ -123,10 +130,10 @@ export const RouteData = [
         fileName: "UseEffectHookOverview",
         children: [
           {
-            to: "interval-Demo",
-            title: "Interval Demo",
+            to: "video-player",
+            title: "Video Player",
             folderName: "effectHooks",
-            fileName: "IntervalDemo",
+            fileName: "VideoPlayerDemo",
             children: [],
           },
           {
@@ -134,6 +141,12 @@ export const RouteData = [
             title: "Fetch API Demo",
             folderName: "effectHooks",
             fileName: "FetchAPI",
+          },
+          {
+            to: "update-title",
+            title: "Update Browser Title",
+            folderName: "effectHooks",
+            fileName: "UpdateBrowserTitle",
           },
         ],
       },

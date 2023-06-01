@@ -21,7 +21,24 @@ import LoadablePage from "./components/LoadablePage";
 
 import { RouteData } from "./RouteData";
 import { Layout } from "./components/Layout";
+// let guest = 0;
+// console.log("guest", guest);
 
+// function Cup() {
+//   // Bad: changing a preexisting variable!
+//   guest = guest + 1;
+//   return <h2>Tea cup for guest #{guest}</h2>;
+// }
+
+// function TeaSet() {
+//   return (
+//     <>
+//       <Cup />
+//       <Cup />
+//       <Cup />
+//     </>
+//   );
+// }
 function App() {
   // toggles posts onclick of button
   // const [show, setShow] = useState(false);

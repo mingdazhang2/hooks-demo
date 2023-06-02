@@ -5,9 +5,16 @@ const UseReduceHookOverview = () => {
     <div>
       <h1>useReducer(reducer, initialArg, init?)</h1>
       <div className="lead">
+        useReducer is a React Hook that lets you add a reducer to your
+        component. <br />
         const [state, dispatch] = useReducer(reducer, actionObject);
       </div>
-      <h2>Parameters</h2>
+      <h2>Reference</h2>
+      <p>
+        Call useReducer at the top level of your component to manage its state
+        with a reducer.
+      </p>
+      <h3>Parameters</h3>
       <ul>
         <li>
           reducer: The reducer function that specifies how the state gets
@@ -27,7 +34,7 @@ const UseReduceHookOverview = () => {
           init(initialArg).
         </li>
       </ul>
-      <h2>Returns </h2>
+      <h3>Returns </h3>
       useReducer returns an array with exactly two values:
       <ul>
         <li>
@@ -37,6 +44,22 @@ const UseReduceHookOverview = () => {
         <li>
           The dispatch function that lets you update the state to a different
           value and trigger a re-render.
+        </li>
+      </ul>
+      <h3>Caveats</h3>
+      <ul>
+        <li>
+          useReducer is a Hook, so you can only call it at the top level of your
+          component or your own Hooks. You can’t call it inside loops or
+          conditions. If you need that, extract a new component and move the
+          state into it.
+        </li>
+        <li>
+          In Strict Mode, React will call your reducer and initializer twice in
+          order to help you find accidental impurities. This is development-only
+          behavior and does not affect production. If your reducer and
+          initializer are pure (as they should be), this should not affect your
+          logic. The result from one of the calls is ignored.
         </li>
       </ul>
       <h2>Usage</h2>

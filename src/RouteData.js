@@ -74,7 +74,15 @@ export const RouteData = [
         title: "useMemo",
         folderName: "contentPages",
         fileName: "UseMemoHookOverview",
-        children: [],
+        children: [
+          {
+            to: "exp-calc",
+            title: "Expensive Calculation",
+            folderName: "performanceHooks",
+            fileName: "ExpensiveCalculation",
+            children: [],
+          },
+        ],
       },
       {
         to: "useCallback",

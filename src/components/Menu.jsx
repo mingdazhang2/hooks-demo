@@ -3,8 +3,8 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { SubMenu } from "./SubMenu";
 import { Link } from "react-router-dom";
-import React, { useState } from "react";
-import { useContext } from "react";
+import React, { useContext, useState } from "react";
+
 import { ThemeContext } from "./Layout";
 import * as Icon from "react-bootstrap-icons";
 // import SplitButton from "react-bootstrap/SplitButton";
@@ -17,11 +17,11 @@ export const Menu = (props) => {
   };
 
   const handleLinkClick = () => {
-    setIsNavOpen(false);
+    if (isNavOpen) setIsNavOpen(false);
   };
 
   const themeContent = useContext(ThemeContext);
-  console.log("themeContent value in Menu:", themeContent);
+
   return (
     <>
       <Navbar expand="lg" bg={themeContent} variant={themeContent} fixed="top">

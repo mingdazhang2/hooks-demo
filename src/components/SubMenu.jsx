@@ -11,7 +11,7 @@ export const SubMenu = (props) => {
       setWindowWidth(window.innerWidth);
       if (windowWidth > 991) {
         setShowSubMenu(false);
-        // console.log("change width", windowWidth);
+        console.log("change width", windowWidth);
       }
     };
     const debouncedHandleResize = debounce(handleResize, 10);

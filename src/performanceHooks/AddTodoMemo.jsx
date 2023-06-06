@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from "react";
 import { CopyBlock, googlecode } from "react-code-blocks";
-const ExpensiveCalculation = () => {
+const AddTodoMemo = () => {
   const [count, setCount] = useState(0);
   const [todos, setTodos] = useState(["Default todo", "Default todo 2"]);
   //const calculation = ComplexCalc(count);
@@ -34,12 +34,12 @@ const ExpensiveCalculation = () => {
       <h2>Note:</h2>
       <div>
         The <b>ComplexCalc</b> function runs every time the "Add Todo" button is
-        clicked because it is invoked within the <b>ExpensiveCalculation</b>
+        clicked because it is invoked within the <b>ExpensiveCalculation </b>
         component's render method. <b />
         In the <b>ExpensiveCalculation</b> component, the
-        <b>ComplexCalc</b> component is rendered directly within the JSX markup,{" "}
-        ComplexCalc num={count}. This means that every time the
-        <b>ExpensiveCalculation</b> component is rendered, the{" "}
+        <b> ComplexCalc</b> component is rendered directly within the JSX
+        markup, ComplexCalc num={count}. This means that every time the
+        <b> ExpensiveCalculation</b> component is rendered, the{" "}
         <b>ComplexCalc</b> component is also rendered, resulting in the
         execution of the <b>ComplexCal</b>c function.
         <br />
@@ -49,7 +49,7 @@ const ExpensiveCalculation = () => {
         component, and as a result, the <b>ComplexCalc</b> component is
         re-rendered as well, causing the <b>ComplexCalc</b> function to execute
         again. Since the
-        <b>ComplexCalc</b> component is part of the ExpensiveCalculation
+        <b> ComplexCalc</b> component is part of the ExpensiveCalculation
         component's render tree, any state update or change in the
         ExpensiveCalculation component will cause a re-render of the{" "}
         <b>ComplexCalc</b> component. In this case, clicking the "Add Todo"
@@ -64,7 +64,7 @@ const ExpensiveCalculation = () => {
     </>
   );
 };
-export default ExpensiveCalculation;
+export default AddTodoMemo;
 export const ComplexCalc = ({ num }) => {
   console.log("Calculating...");
   for (let i = 0; i < 1000000000; i++) {
@@ -95,6 +95,7 @@ const ExpensiveCalculation = () => {
       <button onClick={increment}>+</button>
       <h2>Expensive Calculation</h2>
       {memoizedCalculation}
+      // <ComplexCalc num={count} />
       <h2>My Todos</h2>
       <button onClick={addTodo}>Add Todo</button>
       {todos.map((todo, index) => {

@@ -76,10 +76,10 @@ export const RouteData = [
         fileName: "UseMemoHookOverview",
         children: [
           {
-            to: "exp-calc",
-            title: "Expensive Calculation",
+            to: "add-todo",
+            title: "Add Todo",
             folderName: "performanceHooks",
-            fileName: "ExpensiveCalculation",
+            fileName: "AddTodoMemo",
             children: [],
           },
         ],
@@ -89,7 +89,15 @@ export const RouteData = [
         title: "useCallback",
         folderName: "contentPages",
         fileName: "UseCallbackHookOverview",
-        children: [],
+        children: [
+          {
+            to: "add-todo",
+            title: "Add Todo",
+            folderName: "performanceHooks",
+            fileName: "AddTodoCallback",
+            children: [],
+          },
+        ],
       },
     ],
   },

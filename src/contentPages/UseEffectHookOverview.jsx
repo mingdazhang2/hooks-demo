@@ -159,6 +159,16 @@ const UseEffectHookOverview = () => {
           from the page (unmounts).
         </li>
       </ol>
+      <h2>Note</h2>
+      <p>
+        By default, the effect function is called after every render of the
+        component, including the initial render. However, you can control when
+        the effect runs by providing a dependencies array as the second argument
+        to useEffect. The dependencies array is an array of values that the
+        effect depends on. If any of the values in the dependencies array change
+        between renders, the effect will run again. If the dependencies array is
+        empty, the effect will only run once, after the initial render.
+      </p>
     </div>
   );
 };

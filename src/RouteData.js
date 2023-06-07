@@ -153,6 +153,12 @@ export const RouteData = [
             children: [],
           },
           {
+            to: "chat-room",
+            title: "Chat Room",
+            folderName: "effectHooks",
+            fileName: "ChatRoom",
+          },
+          {
             to: "fetch-api",
             title: "Fetch API Demo",
             folderName: "effectHooks",
@@ -188,6 +194,14 @@ export const RouteData = [
     ifNavDropdownLink: false,
     folderName: "contentPages",
     fileName: "OwnHookOverview",
-    children: [],
+    children: [
+      {
+        to: "useFetch",
+        title: "useFetch",
+        folderName: "ownHooks",
+        fileName: "useFetch",
+        children: [],
+      },
+    ],
   },
 ];

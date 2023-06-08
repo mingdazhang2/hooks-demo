@@ -14,8 +14,15 @@
     margin-right:10px;
     margin-bottom:10px;
 }
-
- .depth1 > .hasDropdown, .hasDropdown.nav-item{
+.o-x-h{
+    height: 200px;
+    display: block;
+    overflow-x: hidden;
+    background: ghostwhite;
+    padding: 1rem;
+    margin: 1rem 0;
+}
+.depth1 > .hasDropdown, .hasDropdown.nav-item{
     display: flex;
     align-items: center;
     justify-content: space-between;

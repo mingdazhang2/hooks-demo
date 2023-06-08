@@ -38,6 +38,11 @@ const CounterStateHook = () => {
         the requests and update state linearly. This way we wouldn't lose
         information in the middle.
       </p>
+      <p className="ref">
+        <a href="https://bobbyhadz.com/blog/react-too-many-re-renders-react-limits-the-number">
+          Why n how to fix
+        </a>
+      </p>
     </div>
   );
 };

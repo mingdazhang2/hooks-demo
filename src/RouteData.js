@@ -197,9 +197,16 @@ export const RouteData = [
     children: [
       {
         to: "useFetch",
-        title: "useFetch",
-        folderName: "ownHooks",
-        fileName: "useFetch",
+        title: "useFetch Demo",
+        folderName: "contentPages",
+        fileName: "UseFetchDemo",
+        children: [],
+      },
+      {
+        to: "useDebounce",
+        title: "useDebounce Demo",
+        folderName: "contentPages",
+        fileName: "UseDebounceDemo",
         children: [],
       },
     ],

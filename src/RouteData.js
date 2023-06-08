@@ -209,6 +209,21 @@ export const RouteData = [
         fileName: "UseDebounceDemo",
         children: [],
       },
+      {
+        to: "others",
+        title: "Other stuff",
+        folderName: "contentPages",
+        fileName: "OthersOverview",
+        children: [
+          {
+            to: "accordion",
+            title: "Accordion Demo",
+            folderName: "others",
+            fileName: "AccordionDemo",
+            children: [],
+          },
+        ],
+      },
     ],
   },
 ];

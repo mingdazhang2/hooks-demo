@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export const SubMenu = (props) => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-  const [showSubMenu, setShowSubMenu] = useState(false);
+  const [showSubMenu, setShowSubMenu] = useState(props.showSubMenu);
 
   useEffect(() => {
     const handleResize = () => {
@@ -57,7 +57,10 @@ export const SubMenu = (props) => {
               return (
                 <div className="subMenu" key={child.to}>
                   <SubMenu
-                    handleLinkClick={props.handleLinkClick}
+                    handleLinkClick={() => {
+                      props.handleLinkClick();
+                      props.closeOtherSubmenus(); // Call the closeOtherSubmenus callback
+                    }}
                     to={props.to + "/" + child.to}
                     title={child.title}
                     children={child.children}

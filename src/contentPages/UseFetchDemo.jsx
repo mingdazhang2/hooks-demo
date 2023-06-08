@@ -2,7 +2,7 @@ import React from "react";
 import { CopyBlock, googlecode } from "react-code-blocks";
 import useFetch from "../ownHooks/useFetch";
 const UseFetchDemo = () => {
-  const data = useFetch("https://jsonplaceholder.typicode.com/todos");
+  const [data] = useFetch("https://jsonplaceholder.typicode.com/todos");
   return (
     <>
       <div className="lead">

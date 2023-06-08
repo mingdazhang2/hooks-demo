@@ -15,9 +15,11 @@ export const Menu = (props) => {
   const handleNavToggle = () => {
     setIsNavOpen(!isNavOpen);
   };
-
-  const handleLinkClick = () => {
+  const [currentSubMenu, setCurrentSubMenu] = useState("");
+  const handleLinkClick = (key) => {
     if (isNavOpen) setIsNavOpen(false);
+    setCurrentSubMenu(key);
+    console.log("key", key);
   };
 
   const themeContent = useContext(ThemeContext);
@@ -50,13 +52,14 @@ export const Menu = (props) => {
               {props.RouteData.map((route) => {
                 return (
                   <SubMenu
-                    handleLinkClick={handleLinkClick}
+                    handleLinkClick={() => handleLinkClick(route.to)}
                     key={route.to}
                     to={route.to}
                     title={route.title}
                     children={route.children}
                     depth={1}
-                    //  showSubMenu={false}
+                    showSubMenu={currentSubMenu === route.to ? true : false}
+                    closeOtherSubmenus={() => setCurrentSubMenu("")}
                   />
                 );
               })}

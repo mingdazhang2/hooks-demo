@@ -11,7 +11,7 @@ const ContentHookOverview = () => {
       <h1>Content Hooks</h1>
       <div className="lead">
         <p>
-          <em>Context</em> lets a component{" "}
+          Context lets a component{" "}
           <a
             target="_blank"
             rel="noreferrer"

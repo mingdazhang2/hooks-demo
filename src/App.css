@@ -123,6 +123,50 @@
     color:#343a40;
 }
 
+
+/*Custome component*/
+ul.accordion {
+    padding-left: 0;
+   
+}
+.accordion_item {
+    list-style: none;
+    margin-bottom: 3px;
+    display: flex;
+  
+    flex-direction: column;
+    
+    width: 100%;
+}
+.accordion_item >.accordion_title{ 
+    padding:.5rem;
+    background-color:  rgb(168, 202, 202);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.accordion_item >.accordion_title:hover{
+    cursor: pointer;
+}
+.accordion_item >.accordion_title > .control{
+    font-weight: bold;
+ }
+.accordion_item >.accordion_body_wrapper{
+    height: 0;
+    visibility: hidden;
+    opacity: 0;
+    transition: all .3s linear;
+    background-color: #ebebeb;
+}
+.accordion_item >.accordion_body_wrapper.active{
+    height: 100px;
+    opacity: 1;
+    visibility: visible;
+    margin-bottom: 1rem;
+}
+.accordion_item >.accordion_body_wrapper>.accordion_body{
+ padding:1rem;
+}
 @media (min-width: 992px) {
     .App .depth1 > .hasDropdown > .dropdownToken:after{
         content:""

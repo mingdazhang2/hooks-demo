@@ -1,0 +1,101 @@
+﻿@model IEnumerable<SIMS.Models.Star.StarUnitStandard>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Version)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UnitLevel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Credits)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TargetHours)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LearningHours)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OutCome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Blackboard)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Computer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Field)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubField)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UnitExpiring)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cost)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Version)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UnitLevel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Credits)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TargetHours)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LearningHours)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OutCome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Blackboard)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Computer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Field)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubField)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UnitExpiring)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cost)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.UnitStandardCode">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.UnitStandardCode">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.UnitStandardCode">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

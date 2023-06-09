@@ -1,0 +1,55 @@
+﻿@{
+    ViewBag.Title = "STAR Dashboard";
+    Layout = "_Layout";
+}
+
+@inject Microsoft.Extensions.Options.IOptions<AppSettings> AppSettingsOptions
+@using SIMS.Properties;
+
+@inject IConfiguration Configuration;
+@using Microsoft.Extensions.Configuration;
+
+@section scripts {
+    <!-- Boostrap CSS  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-flatly.min.css">
+    <link rel="stylesheet" href="/css/STARdashboard.css">
+
+    <!-- React lib JS file -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.1/axios.min.js"></script>
+    <!-- React Bootstrap JS file -->
+    <script src="https://unpkg.com/react-bootstrap@next/dist/react-bootstrap.min.js" crossorigin></script>
+    <!-- React Component JS file -->
+    <script>
+        var exports = {};
+        const Form = ReactBootstrap.Form;
+        const Button = ReactBootstrap.Button;
+        const Alert = ReactBootstrap.Alert;
+        const Toast = ReactBootstrap.Toast;
+        const Modal = ReactBootstrap.Modal;
+        const { useState, useEffect, useMemo } = React;
+        const STARDashboardEndpoint = "https://"+window.location.host+"/STAR/";
+        // ENV is for showing dev links on the footer 
+        const ENV = '@Configuration["ASPNETCORE_ENVIRONMENT"]';
+        //Read "STARDashboardEndpoint" from Dev.Config.json or Config.json by env.IsDevelopment() in Startup.cs 
+        //STARDashboardEndpoint = '@AppSettingsOptions.Value.STARDashboardEndpoint';
+        //console.log("STARDashboardEndpoint", STARDashboardEndpoint)
+    </script>
+    <script type="text/babel" src="/app/components/star/Filter.js"></script>
+    <script type="text/babel" src="/app/components/star/DeleteUnit.js"></script>
+    <script type="text/babel" src="/app/components/star/Unit.js"></script>
+    <script type="text/babel" src="/app/components/star/EditUnit.js"></script>
+    <script type="text/babel" src="/app/components/star/AddUnit.js"></script>
+    <script type="text/babel" src="/app/components/star/AddProgramme.js"></script>
+    <script type="text/babel" src="/app/components/star/EditProgramme.js"></script>
+    <script type="text/babel" src="/app/components/star/ProgrammeCard.js"></script>
+    <script type="text/babel" src="/app/components/star/STARProgrammeList.js"></script>
+    <script type="text/babel" data-type="module" src="/app/components/star/MsgAlert.js"></script>
+
+
+}
+<div id="starDashboard"></div>
+

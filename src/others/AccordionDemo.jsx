@@ -68,7 +68,7 @@ export const AccordionItem = ({ item, onToggle, active }) => {
     <li className={`accordion_item ${active ? "active" : ""}`}>
       <div className="accordion_title" onClick={onToggle}>
         {title}
-        <span className="control">{active ? "--" : "+"}</span>
+        <span className="control">{active ? "-" : "+"}</span>
       </div>
       <div className={`accordion_body_wrapper ${active ? "active" : ""}`}>
         <div className="accordion_body">{body}</div>
